@@ -23,7 +23,9 @@ jobs:
           go version
           git submodule update --init --recursive
           cd rds_exporter/
-          promu build 
+
+          echo 'Start build..'
+          promu build --prefix $(pwd)
 
           echo $(ls ./)
       
