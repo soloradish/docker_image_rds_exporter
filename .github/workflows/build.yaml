@@ -20,9 +20,15 @@ jobs:
         run: |
           go version
           go env
+          curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+          mkdir -p /home/runner/go/src/lowid/rds_exporter
           git submodule update --init --recursive
           cd rds_exporter/
-          curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+          cp -r . /home/runner/go/src/lowid/rds_exporter
+          cd /home/runner/go/src/lowid/rds_exporter
+          
           echo 'get deps'
           dep ensure
           echo 'Start build..'
