@@ -19,5 +19,10 @@ jobs:
       - name: build binary
         run: |
           cd rds_exporter/
+          ls ./
+          pwd 
+          cat Makefile
+          go version
+
           make build
       
