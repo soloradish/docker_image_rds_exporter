@@ -19,6 +19,7 @@ jobs:
       - name: build binary
         run: |
           go version
+          go env
           git submodule update --init --recursive
           cd rds_exporter/
           curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
