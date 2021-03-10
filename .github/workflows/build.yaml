@@ -32,7 +32,7 @@ jobs:
           echo 'get deps'
           dep ensure
           echo 'Start build..'
-          go build
+          GO111MODULE=off go build
 
           echo $(ls ./)
       
