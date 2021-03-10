@@ -18,16 +18,13 @@ jobs:
 
       - name: build binary
         run: |
-          go get -u github.com/prometheus/promu
-          curl https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s latest
-
           go version
           git submodule update --init --recursive
           cd rds_exporter/
-          go mod init
-
+          echo 'get deps'
+          dep ensure
           echo 'Start build..'
-          promu build --prefix $(pwd)
+          go build
 
           echo $(ls ./)
       
