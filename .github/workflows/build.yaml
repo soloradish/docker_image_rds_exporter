@@ -18,9 +18,12 @@ jobs:
 
       - name: build binary
         run: |
+          get -u github.com/prometheus/promu
+
           go version
           git submodule update --init --recursive
           cd rds_exporter/
+          promu build 
 
-          make build
+          echo $(ls ./)
       
