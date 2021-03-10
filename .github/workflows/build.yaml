@@ -18,7 +18,7 @@ jobs:
 
       - name: build binary
         run: |
-          get -u github.com/prometheus/promu
+          go get -u github.com/prometheus/promu
 
           go version
           git submodule update --init --recursive
