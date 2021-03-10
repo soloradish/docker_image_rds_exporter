@@ -11,10 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: switch work directory
-        run: |
-          cd rds_exporter/
-
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
@@ -22,5 +18,6 @@ jobs:
 
       - name: build binary
         run: |
+          cd rds_exporter/
           make build
       
