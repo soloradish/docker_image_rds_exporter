@@ -1,0 +1,3 @@
+[submodule "rds_exporter"]
+	path = rds_exporter
+	url = git@github.com:percona/rds_exporter.git

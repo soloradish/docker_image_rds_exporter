@@ -1,0 +1,26 @@
+name: Build RDS exporter docker image
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Push image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: switch work directory
+        run: |
+          cd rds_exporter/
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ‘1.13.15’
+
+      - name: build binary
+        run: |
+          make build
+      
