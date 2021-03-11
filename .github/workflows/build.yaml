@@ -32,7 +32,7 @@ jobs:
           echo 'get deps'
           dep ensure
           echo 'Start build..'
-          GO111MODULE=off go build
+          GO111MODULE=off CGO_ENABLED=0 go build
 
       - uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
